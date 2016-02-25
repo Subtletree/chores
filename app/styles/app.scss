@@ -1,0 +1,61 @@
+.active-jobs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+
+}
+
+.job-status {
+  border-radius: 3px;
+  margin: 20px;
+  display: inline-block;
+  width:200px;
+  height: 200px;
+  border: 1px solid #bbb;
+  text-align: center;
+  position: relative;
+  a {
+    padding: 10px 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+  }
+  &.complete {
+    border-color: #74A82A;
+    background-color: rgba(116, 168, 42, 0.2);
+  }
+}
+
+.job-name {
+}
+
+.job-user {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.timer {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.circle {
+  margin-top: 24px;
+  display: inline-block;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+  background-color: #bbb;
+	/* width and height can be anything, as long as they're equal */
+  &[data-complete="true"] {
+    background-color: #2ecc71;
+  }
+}

@@ -1,0 +1,8 @@
+
+{{#link-to 'tasks.index' job}}
+  <h4 class="job-name">{{job.name}}</h4>
+  {{#each job.tasks as |task|}}
+      <div class="circle" data-complete={{task.complete}}></div>
+  {{/each}}
+  <h4 class="job-user">{{job.user.name}}</h4>
+{{/link-to}}
