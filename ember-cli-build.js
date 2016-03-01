@@ -22,7 +22,6 @@ module.exports = function(defaults) {
 
   app.import('bower_components/milligram/dist/milligram.min.css');
   app.import('bower_components/moment/moment.js');
-  app.import('vendor/countdown.min.js');
 
   return app.toTree();
 };
