@@ -24,14 +24,11 @@ server {
     proxy_set_header X-Forwarded-Port \$server_port;
     proxy_set_header X-Request-Start \$msec;
 
-    proxy_set_header Real-IP $remote_addr;
-    proxy_set_header Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Real-IP \$remote_addr;
+    proxy_set_header Forwarded-For \$proxy_add_x_forwarded_for;
     proxy_set_header NginX-Proxy true;
     proxy_ssl_session_reuse off;
     proxy_redirect off;
   }
   include $DOKKU_ROOT/$APP/nginx.conf.d/*.conf;
-}
-upstream chores {
-  server 172.17.0.5:5000;
 }
