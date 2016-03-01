@@ -1,5 +1,11 @@
-<h1>{{model.name}} {{model.complete}}</h1>
+<div class='job'>
+  <h1 class="{{model.complete}}">{{model.name}}
+    {{#if model.complete}}
+      {{check-success complete=true success=true}}
+    {{/if}}
+  </h1>
 
-<div class='tasks-container'>
-  {{outlet}}
+  <div class='tasks-container'>
+    {{outlet}}
+  </div>
 </div>

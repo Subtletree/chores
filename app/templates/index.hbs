@@ -1,9 +1,2 @@
-<div class="active-jobs">
-  {{#each model as |job|}}
-    {{#if job.active}}
-      {{jobs/job-status job=job}}
-    {{/if}}
-  {{/each}}
-</div>
-
+{{job-status-dash jobs=model left=false}}
 {{outlet}}

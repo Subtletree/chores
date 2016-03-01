@@ -1,15 +1,21 @@
+$main: #88C25B;
+//$main = #74A82A
+//$main = #2ecc71
+
 .active-jobs {
+//  -webkit-transition: all 5.0s ease-in;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1000px;
-
+  max-width: 900px;
+  width: 100%;
 }
-
 .job-status {
+  -webkit-transition: background-color 0.4s ease-in;
+  transition: background-color 0.4s ease-in;
   border-radius: 3px;
   margin: 20px;
   display: inline-block;
@@ -25,12 +31,90 @@
     bottom: 0;
     top: 0;
     right: 0;
+    &.active {
+      border-right: 3px solid;
+    }
   }
   &.complete {
-    border-color: #74A82A;
-    background-color: rgba(116, 168, 42, 0.2);
+    border-color: $main;
+    background-color: lighten($main, 30%);
   }
 }
+
+.saved {
+  color: $main;
+  position: absolute;
+  margin-left: 10px;
+}
+
+.active-jobs.left {
+  width: 30%;
+  min-width: 215px;
+  margin: 0;
+  display: inline-flex;
+  .job-status {
+    text-align: left;
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 0;
+    width: 100%;
+    height: 60px;
+    border-color: #bbb;
+    .job-user {
+      bottom: initial;
+      position: initial;
+    }
+    &:last-child {
+      border-bottom: 1px solid #bbb;
+    }
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+    }
+    a {
+      padding: 5px 0 5px 20px;
+    }
+    .task-circles {
+      position: absolute;
+      right: 20px;
+      bottom: 15px;
+      width: 80px;
+      text-align: center;
+    }
+    .checkmark {
+      position: absolute;
+      right: 45px;
+      width: 30px;
+      bottom: 8px;
+    }
+  }
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+}
+
+h1 {
+  transition: color 0.5s ease;
+  &.true {
+    color: $main;
+  }
+}
+.job {
+//  min-width: 250px;
+  width: 50%;
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 15%;
+  @media (max-width: 700px) {
+    display: block;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+
 
 .job-name {
 }
@@ -51,11 +135,176 @@
   margin-top: 24px;
   display: inline-block;
 	border-radius: 50%;
-	width: 10px;
-	height: 10px;
+	width: 15px;
+	height: 15px;
   background-color: #bbb;
 	/* width and height can be anything, as long as they're equal */
   &[data-complete="true"] {
-    background-color: #2ecc71;
+    background-color: $main;
+  }
+}
+.back {
+  position: absolute;
+  left: 20%;
+}
+
+// From http://codepen.io/anon/pen/oxvMKb
+.checkmark {
+  width: 20px;
+  margin: 0 auto;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+h1 .checkmark {
+  width: 30px;
+  margin-left: 10px;
+}
+.job-status .checkmark {
+  width: 55px;
+}
+.path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 0;
+  -webkit-animation-name: load, spin;
+  -webkit-animation-duration: 3s, 3s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: load, spin;
+  animation-duration: 3s, 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50px 50px;
+  .success {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+}
+
+.check {
+	stroke-dasharray: 110;
+	stroke-dashoffset: -110;
+	stroke-width: 0;
+  &.complete {
+  	-webkit-animation: check 1s ease-in forwards;
+  	animation: check 1s ease-in forwards;
+  	stroke-width: 15;
+  	stroke-dashoffset: 0;
+  }
+  &.success {
+    stroke: $main;
+    //stroke: #009900;
+    transition: stroke .6s;
+  }
+}
+
+.fill {
+  stroke-dasharray: 285;
+	stroke-dashoffset: -257;
+	-webkit-animation: spin-fill 3s cubic-bezier(0.700, 0.435, 0.120, 0.600) infinite forwards;
+	animation: spin-fill 3s cubic-bezier(0.700, 0.465, 0.120, 0.600) infinite forwards;
+    -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50px 50px;
+  &.complete {
+  	-webkit-animation: fill 1s ease-out forwards;
+  	animation: fill 1s ease-out forwards;
+  }
+  &.success {
+    stroke: $main;
+    //stroke: #009900;
+    transition: stroke .6s;
+  }
+}
+
+@-webkit-keyframes load {
+ 0% {
+   stroke-dashoffset: 300;
+   -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+ }
+ 50% {
+	 stroke-dashoffset: 0;
+	 -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+ }
+ 100% {
+   stroke-dashoffset: -300;
+ }
+}
+@keyframes load {
+ 0% {
+   stroke-dashoffset: 285;
+   animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+ }
+ 50% {
+	 stroke-dashoffset: 0;
+	 animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+ }
+ 100% {
+   stroke-dashoffset: -285;
+ }
+}
+@-webkit-keyframes check {
+ 0% {
+   stroke-dashoffset: -110;
+}
+ 100% {
+   stroke-dashoffset: 0;
+ }
+}
+@keyframes check {
+ 0% {
+   stroke-dashoffset: -110;
+}
+ 100% {
+   stroke-dashoffset: 0;
+ }
+}
+@-webkit-keyframes spin {
+  0% {
+	-webkit-transform: rotate(0deg);
+  }
+  100% {
+	-webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+	transform: rotate(0deg);
+  }
+  100% {
+	transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin-fill {
+  0% {
+	-webkit-transform: rotate(0deg);
+  }
+  100% {
+	-webkit-transform: rotate(720deg);
+  }
+}
+@keyframes spin-fill {
+  0% {
+	transform: rotate(0deg);
+  }
+  100% {
+	transform: rotate(720deg);
+  }
+}
+@-webkit-keyframes fill {
+  0% {
+	stroke-dashoffset: 285;
+  }
+  100% {
+	stroke-dashoffset: 0;
+  }
+}
+@keyframes fill {
+  0% {
+	stroke-dashoffset: 285;
+  }
+  100% {
+	stroke-dashoffset: 0;
   }
 }

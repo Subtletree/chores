@@ -3,10 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'h2',
   classNames: ['timer'],
-  endtime: moment().endOf("week").add(1, 'd').toDate(),
+  endtime: moment().endOf('isoweek').toDate(),
   _seconds: 0,
   time_without_seconds: '',
   init() {
+    console.log(this.endtime);
     var _this = this;
     this._super();
     this.updateClock();

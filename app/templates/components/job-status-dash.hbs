@@ -1,0 +1,6 @@
+
+{{#each jobs as |job|}}
+  {{#if job.active}}
+    {{jobs/job-status job=job}}
+  {{/if}}
+{{/each}}
