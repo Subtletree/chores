@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
+    host: 'http://api.scottbase.ryanscott.co.nz'
     modulePrefix: 'chores',
     environment: environment,
     baseURL: '/',
