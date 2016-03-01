@@ -8,11 +8,11 @@
     "tests"
   ],
   "dependencies": {
-    "ember-cli-shims": "^0.1.0",
-    "ember-cli-test-loader": "^1.0.0",
     "ember-qunit-notifications": "^0.1.0",
     "moment": "^2.11.2",
     "milligram": "^1.1.0",
-    "ember": "~2.4.1"
+    "ember": "~2.4.1",
+    "ember-cli-test-loader": "0.2.2",
+    "ember-cli-shims": "^0.1.0"
   }
 }
