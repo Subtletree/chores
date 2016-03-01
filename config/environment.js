@@ -40,7 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.api.host = 'http://api.scottbase.ryanscott.co.nz';
+
   }
 
   return ENV;
