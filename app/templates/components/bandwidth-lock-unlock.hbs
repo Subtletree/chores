@@ -1,0 +1,7 @@
+<h6>{{bl.user.name}}'s bandwidth has been throttled.</h6>
+{{input placeholder="Unlock code" value=lock_key}}
+<button {{action "unlock"}}>Unlock</button>
+
+{{#if errorText}}
+  <br><span class='error'>{{errorText}}</span>
+{{/if}}

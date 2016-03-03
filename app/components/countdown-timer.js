@@ -38,6 +38,11 @@ export default Ember.Component.extend({
     }
     if (t <= 0) {
       this.set('endtime', moment().endOf("week").add(1, 'd').toDate())
+
+      // Reload page in 5 seconds after new jobs have been assigned on the server
+      window.setTimeout(function() {
+        window.location.reload(true);
+      }, 5000);
     }
   }
 });

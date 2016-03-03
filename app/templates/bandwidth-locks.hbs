@@ -1,0 +1,11 @@
+{{#if unlockedMessage}}
+  <h6 class='unlocked'>{{unlockedMessage}}</h6>
+  <br>
+{{/if}}
+
+{{#each  model as |bl|}}
+  {{bandwidth-lock-unlock bl=bl showUnlockSuccess=(action "showUnlockSuccess")}}
+{{/each}}
+{{#unless model}}
+  <p>No bandwidth locks in effect</p>
+{{/unless}}
