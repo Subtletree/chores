@@ -1,4 +1,4 @@
 {{task.name}}
-<input type="checkbox" checked={{task.complete}} {{action "changeTask" task on="change"}}/>
+<input type="checkbox" checked={{task.complete}} disabled={{ip_address.blocked}} {{action "changeTask" task on="change"}}/>
 {{if task.isSaving 'Saving..'}}
 <span class="saved">{{if saved 'Saved'}}</span>

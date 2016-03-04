@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   tagName: 'li',
   task: null, // passed-in
   saved: false,
+  ip_address: Ember.inject.service(),
   actions: {
     changeTask: function(task) {
       var _this = this;
