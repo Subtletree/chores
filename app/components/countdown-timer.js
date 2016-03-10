@@ -7,7 +7,6 @@ export default Ember.Component.extend({
   _seconds: 0,
   time_without_seconds: '',
   init() {
-    console.log(this.endtime);
     var _this = this;
     this._super();
     this.updateClock();
@@ -37,7 +36,7 @@ export default Ember.Component.extend({
       this._seconds = this._seconds - 1;
     }
     if (t <= 0) {
-      this.set('endtime', moment().endOf("week").add(1, 'd').toDate())
+      this.set('timeLeft', 'Assigning new jobs...');
 
       // Reload page in 5 seconds after new jobs have been assigned on the server
       window.setTimeout(function() {

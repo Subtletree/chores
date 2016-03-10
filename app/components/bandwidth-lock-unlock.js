@@ -11,7 +11,6 @@ export default Ember.Component.extend({
         method: 'POST',
         url: 'api/bandwidth_unlock/' + this.bl.id
       }).done(function() {
-        console.log( "success" );
         _this.sendAction('showUnlockSuccess', (_this.get('bl.user.name') + "'s bandwidth has been unlocked!"));
         _this.bl.unloadRecord();
       })
